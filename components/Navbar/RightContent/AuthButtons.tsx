@@ -10,7 +10,7 @@ const AuthButtons: React.FC = () => {
   return (
       <>
       <Button
-        varint="outline"
+        variant="outline"
         height="28px"
         display={{ base: "none", sm: "flex" }}
         width={{ base: "70px", md: "110px"}}
@@ -19,7 +19,6 @@ const AuthButtons: React.FC = () => {
         Log In
       </Button>
       <Button
-        varint="outline"
         height="28px"
         display={{ base: "none", sm: "flex" }}
         width={{ base: "70px", md: "110px"}}

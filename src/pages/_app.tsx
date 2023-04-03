@@ -6,13 +6,13 @@ import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    /*<Recoil>*/
+    <RecoilRoot>
       <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>
-    /*</Recoil>*/
+    </RecoilRoot>
   );
 }
 

@@ -14,6 +14,7 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { authModalState } from "../../../atoms/authModalAtom";
 import AuthInputs from "./AuthInputs"
+import OAuthButtons from "./OAuthButtons"
 
 
 const AuthModal: React.FC = () => {
@@ -34,7 +35,7 @@ const AuthModal: React.FC = () => {
           <ModalHeader textAlign="center">
             {modalState.view === "login" && "Login"}
             {modalState.view === "signup" && "Sign Up"}
-            {modalState.view === "resetPassword" && "Reset Password"}
+            {/* modalState.view === "resetPassword" && "Reset Password" */}
 
           </ModalHeader>
           <ModalCloseButton />
@@ -50,6 +51,7 @@ const AuthModal: React.FC = () => {
               justify="center"
               width="70%"
             >
+            <OAuthButtons />
             <AuthInputs />
             </Flex>
           </ModalBody>

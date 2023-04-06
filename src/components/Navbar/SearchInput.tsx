@@ -8,12 +8,16 @@ type SearchInputProps = {
 
 const SearchInput:React.FC<SearchInputProps> = () => {
       return (
-        <Flex>
+        <Flex
+                flexGrow={1}
+                mr={2}
+                alignItems="center"
+        >
         <InputGroup>
                 <InputLeftElement
                         pointerEvents='none'
                         children={<SearchIcon color='gray.400' />}
-        />
+                />
                 <Input 
                         placeholder='Search Reddit'
                         fontSize='10pt'
@@ -28,10 +32,9 @@ const SearchInput:React.FC<SearchInputProps> = () => {
                                 border: '1px solid',
                                 borderColor: 'blue.500',
                         }}
-
-
-
-        />
+                        height="34px"
+                        bg="gray.50"
+                />
         </InputGroup>
         </Flex>
 

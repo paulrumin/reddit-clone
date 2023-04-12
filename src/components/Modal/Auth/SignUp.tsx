@@ -15,11 +15,11 @@ const SignUp:React.FC<LoginProps> = () => {
   });
 const [error, setError ] = useState("");
 const [
-    createUserWithEmailAndPassword,
-    user,
-    loading,
-    userError,
-  ] = useCreateUserWithEmailAndPassword(auth); 
+  createUserWithEmailAndPassword,
+  user,
+  loading,
+  authError,
+  ] = useCreateUserWithEmailAndPassword(auth);
 // Firebase logic
 const onSubmit = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -107,14 +107,13 @@ const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         }}
         bg="gray.50"
       />
-      {error || userError && (
-        <Text textAlign="center" color="red" fontSize="10pt">
-          {error || 
-            FIREBASE_ERRORS[
-              userError?.message as keyof typeof FIREBASE_ERRORS
-          ]}
-        </Text>
+      {(error || authError) && (
+          <Text textAlign="center" color="red" fontSize="10pt">
+            {error || 
+              FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
+          </Text>
       )}
+
       <Button
         width="100%"
         height="36px"

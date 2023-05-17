@@ -1,10 +1,10 @@
 // 1. Import `extendTheme`
-import "@fontsource/open-sans/300.css"
-import "@fontsource/open-sans/500.css"
-import "@fontsource/open-sans/700.css"
+import "@fontsource/open-sans/300.css";
+import "@fontsource/open-sans/500.css";
+import "@fontsource/open-sans/700.css";
 
-import { extendTheme } from "@chakra-ui/react"
-import { Button } from "./button"
+import { extendTheme } from "@chakra-ui/react";
+import { Button } from "./button";
 
 // 2. Call `extendTheme` and pass your custom values
 export const theme = extendTheme({
@@ -13,20 +13,17 @@ export const theme = extendTheme({
       100: "#ff3c00",
     },
   },
-  fonts:{
-    body: 'Open Sans, san-serif'
+  fonts: {
+    body: "Open Sans, san-serif",
   },
-  styles:{
+  styles: {
     global: () => ({
       body: {
-        bg: "gray.200", 
+        bg: "gray.200",
       },
     }),
   },
-  components:{
+  components: {
     Button,
-
-  }
-})
-
-
+  },
+});

@@ -3,8 +3,8 @@ import { Button, Flex, Text, Input } from "@chakra-ui/react";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "../../../atoms/authModalAtom";
 import { FIREBASE_ERRORS } from "../../../firebase/errors";
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../../firebase/clientApp';
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../../../firebase/clientApp";
 
 type LoginProps = {};
 
@@ -14,19 +14,13 @@ const Login: React.FC<LoginProps> = () => {
     email: "",
     password: "",
   });
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
-
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      signInWithEmailAndPassword(loginForm.email, loginForm.password);
+    event.preventDefault();
+    signInWithEmailAndPassword(loginForm.email, loginForm.password);
   };
-
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginForm((prev) => ({
@@ -47,15 +41,15 @@ const Login: React.FC<LoginProps> = () => {
         fontSize="10pt"
         _placeholder={{ color: "gray.500" }}
         _hover={{
-            bg: "white",
-            border: "1px solid",
-            borderColor: "blue.500",
+          bg: "white",
+          border: "1px solid",
+          borderColor: "blue.500",
         }}
         _focus={{
-            outline: "none",
-            bg: "white",
-            border: "1px solid",
-            borderColor: "blue.500",
+          outline: "none",
+          bg: "white",
+          border: "1px solid",
+          borderColor: "blue.500",
         }}
         bg="gray.50"
       />
@@ -68,15 +62,15 @@ const Login: React.FC<LoginProps> = () => {
         fontSize="10pt"
         _placeholder={{ color: "gray.500" }}
         _hover={{
-            bg: "white",
-            border: "1px solid",
-            borderColor: "blue.500",
+          bg: "white",
+          border: "1px solid",
+          borderColor: "blue.500",
         }}
         _focus={{
-            outline: "none",
-            bg: "white",
-            border: "1px solid",
-            borderColor: "blue.500",
+          outline: "none",
+          bg: "white",
+          border: "1px solid",
+          borderColor: "blue.500",
         }}
         bg="gray.50"
       />
@@ -101,14 +95,13 @@ const Login: React.FC<LoginProps> = () => {
           fontSize="9pt"
           color="blue.500"
           cursor="pointer"
-          onClick={() => 
-                setAuthModalState ((prev) => ({
-                ...prev,
-                view: 'reset',
-                }))
+          onClick={() =>
+            setAuthModalState((prev) => ({
+              ...prev,
+              view: "reset",
+            }))
           }
-
-                  >
+        >
           Reset
         </Text>
       </Flex>
@@ -118,13 +111,12 @@ const Login: React.FC<LoginProps> = () => {
           color="blue.500"
           fontWeight={700}
           cursor="pointer"
-          onClick={() => 
-                setAuthModalState ((prev) => ({
-                ...prev,
-                view: 'signup',
-                }))
+          onClick={() =>
+            setAuthModalState((prev) => ({
+              ...prev,
+              view: "signup",
+            }))
           }
-
         >
           SIGN UP
         </Text>
@@ -134,5 +126,3 @@ const Login: React.FC<LoginProps> = () => {
 };
 
 export default Login;
-
-

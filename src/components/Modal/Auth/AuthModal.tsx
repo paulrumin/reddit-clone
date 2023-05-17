@@ -9,13 +9,13 @@ import {
   ModalBody,
   ModalFooter,
   Flex,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { authModalState } from "../../../atoms/authModalAtom";
-import AuthInputs from "./AuthInputs"
-import OAuthButtons from "./OAuthButtons"
+import AuthInputs from "./AuthInputs";
+import OAuthButtons from "./OAuthButtons";
 import { auth } from "../../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ResetPassword from "./ResetPassword";
@@ -23,17 +23,17 @@ import ResetPassword from "./ResetPassword";
 const AuthModal: React.FC = () => {
   const [modalState, setModalState] = useRecoilState(authModalState);
   const [user, loading, error] = useAuthState(auth);
-  
-  const handleClose = () => { 
-    setModalState((prev) =>  ({
+
+  const handleClose = () => {
+    setModalState((prev) => ({
       ...prev,
       open: false,
     }));
-};
+  };
 
-useEffect(() => {
-  if (user) handleClose();
-}, [user]);
+  useEffect(() => {
+    if (user) handleClose();
+  }, [user]);
 
   return (
     <>
@@ -44,7 +44,6 @@ useEffect(() => {
             {modalState.view === "login" && "Login"}
             {modalState.view === "signup" && "Sign Up"}
             {modalState.view === "resetPassword" && "Reset Password"}
-
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody
@@ -53,31 +52,29 @@ useEffect(() => {
             alignItems="center"
             justifyContent="center"
           >
-            <Flex 
+            <Flex
               direction="column"
               align="center"
               justify="center"
               width="70%"
             >
-
-              {modalState.view === 'login'|| modalState.view === 'signup' ? (
+              {modalState.view === "login" || modalState.view === "signup" ? (
                 <>
                   <OAuthButtons />
                   <Text color="gray.500" fontWeight={700}>
                     OR
-                   </Text>
+                  </Text>
                   <AuthInputs />
                 </>
-                ) : (
-                  <ResetPassword />
-                )}
+              ) : (
+                <ResetPassword />
+              )}
             </Flex>
           </ModalBody>
-
         </ModalContent>
       </Modal>
     </>
-    )
-  };
+  );
+};
 
 export default AuthModal;

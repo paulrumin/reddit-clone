@@ -109,4 +109,3 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ toggleView }) => {
   );
 };
 export default ResetPassword;
-
